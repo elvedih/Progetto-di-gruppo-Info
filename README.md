@@ -1,2 +1,4 @@
 # Progetto-di-gruppo-Info
-lavoro
+Unity, 2d roguelike
+
+https://szadiart.itch.io/rogue-fantasy-catacombs
