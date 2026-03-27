@@ -4,3 +4,5 @@ Unity, 2d roguelike
 https://szadiart.itch.io/rogue-fantasy-catacombs
 
 https://www.youtube.com/watch?v=QN8dm0RD3mY
+
+mugniz : https://assetstore.unity.com/packages/2d/characters/martial-hero-170422
