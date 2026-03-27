@@ -11,3 +11,4 @@ zingra : https://assetstore.unity.com/packages/2d/characters/evil-wizard-3-28449
 https://craftpix.net/freebies/free-wraith-tiny-style-2d-sprites/
 
 gui: https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811
+sfondo menu : https://assetstore.unity.com/packages/2d/environments/dark-forest-254979
