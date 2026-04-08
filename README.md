@@ -1,5 +1,5 @@
 # Progetto-di-gruppo-Info
-Unity, 2d roguelike Nome gioco : Eco parigino
+Unity, 2d roguelike Nome gioco : Requiem
 
 https://szadiart.itch.io/rogue-fantasy-catacombs
 
