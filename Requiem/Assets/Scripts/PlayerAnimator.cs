@@ -38,7 +38,7 @@ public class PlayerAnimator : MonoBehaviour
         {
             sr.flipX = true;
         }
-        else
+        else if (pm.moveDir.x > 0)
         {
             sr.flipX = false;
         }
