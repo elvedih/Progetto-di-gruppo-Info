@@ -18,7 +18,7 @@ font: https://assetstore.unity.com/packages/2d/fonts/boldpixels-font-332078
 
 portale: https://f1xtach.itch.io/pixel-art-portal
 
-(da modificare) plot: 🎮 Titolo provvisorio: Echoes Below Paris
+(da modificare) plot: 🎮 Titolo provvisorio: Requiem
 📖 Plot (semplice ma atmosferico)
 
 Sotto Catacombe di Parigi, un’antica energia ha iniziato a risvegliare i morti.
