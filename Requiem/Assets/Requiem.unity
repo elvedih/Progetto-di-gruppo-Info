@@ -518,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4eb75a029d4c14b87cc07bb784fb77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  chunkSize: 20
   terrainChunks:
   - {fileID: 8533986071580257199, guid: 489e5d91d6052c6479fbd9aed0ff6570, type: 3}
   - {fileID: 8533986071580257199, guid: 239d7a0217a6af0469b797e575367306, type: 3}
@@ -527,7 +528,8 @@ MonoBehaviour:
   terrainMask:
     serializedVersion: 2
     m_Bits: 64
-  currentChunk: {fileID: 0}
+  pm: {fileID: 1285390612}
+  currentChunk: {fileID: 8533986071580257199, guid: 489e5d91d6052c6479fbd9aed0ff6570, type: 3}
 --- !u!4 &1664299217
 Transform:
   m_ObjectHideFlags: 0
