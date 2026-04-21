@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class KnifeBehaviour : ProjectileWeaponBehaviour
 {
+
+    public WeaponScriptableObject weaponData;
     KnifeController kc;
     private void Awake()
     {
