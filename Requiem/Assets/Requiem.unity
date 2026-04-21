@@ -119,6 +119,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &104920681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 442886844918433255, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+  m_PrefabInstance: {fileID: 7529588937405330705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &104920685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104920681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77252ed08b50df34d995eebb2e4bb28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  moveSpeed: 2
 --- !u!1 &468816674
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +185,55 @@ MonoBehaviour:
   damage: 0
   speed: 10
   cooldownDuration: 1
+  pierce: 0
+--- !u!1 &770536286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770536287}
+  - component: {fileID: 770536288}
+  m_Layer: 0
+  m_Name: Sword Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &770536287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770536286}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1285390614}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &770536288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770536286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd22a09209d6bfc459caf878df20046c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwordController
+  prefab: {fileID: 0}
+  damage: 10
+  speed: 0
+  cooldownDuration: 2
   pierce: 0
 --- !u!1 &913039345
 GameObject:
@@ -335,6 +402,7 @@ GameObject:
   - component: {fileID: 1285390610}
   - component: {fileID: 1285390609}
   - component: {fileID: 1285390615}
+  - component: {fileID: 1285390616}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -515,6 +583,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 468816675}
+  - {fileID: 770536287}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1285390615
@@ -539,6 +608,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1285390616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285390608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbb1bbb7fd8943408b5b83b87e4f366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToggleRotationFreeze
 --- !u!1 &1664299215
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +840,66 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489e5d91d6052c6479fbd9aed0ff6570, type: 3}
+--- !u!1001 &7529588937405330705
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 442886844918433255, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_Name
+      value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 442886844918433255, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 104920685}
+  m_SourcePrefab: {fileID: 100100000, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -767,3 +908,4 @@ SceneRoots:
   - {fileID: 1285390614}
   - {fileID: 6328091328888085006}
   - {fileID: 1664299217}
+  - {fileID: 7529588937405330705}
