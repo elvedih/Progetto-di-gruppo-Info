@@ -45,23 +45,29 @@ public class MapController : MonoBehaviour
             Mathf.RoundToInt(dir.y)
         );
 
-        Vector2Int targetGrid = currentGrid + gridDir;
-
-        if (!spawnedChunks.ContainsKey(targetGrid))
+        for (int x = -2; x <= 2; x++)
         {
-            Vector3 spawnPos = new Vector3(
-                targetGrid.x * chunkSize,
-                targetGrid.y * chunkSize,
-                0
-            );
+            for (int y = -2; y <= 2; y++)
+            {
+                Vector2Int grid = currentGrid + new Vector2Int(x, y);
 
-            GameObject newChunk = Instantiate(
-                terrainChunks[Random.Range(0, terrainChunks.Count)],
-                spawnPos,
-                Quaternion.identity
-            );
+                if (!spawnedChunks.ContainsKey(grid))
+                {
+                    Vector3 pos = new Vector3(
+                        grid.x * chunkSize,
+                        grid.y * chunkSize,
+                        0
+                    );
 
-            spawnedChunks.Add(targetGrid, newChunk);
+                    GameObject newChunk = Instantiate(
+                        terrainChunks[Random.Range(0, terrainChunks.Count)],
+                        pos,
+                        Quaternion.identity
+                    );
+
+                    spawnedChunks.Add(grid, newChunk);
+                }
+            }
         }
 
         RemoveFarChunks(currentGrid);
