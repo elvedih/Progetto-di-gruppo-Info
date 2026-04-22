@@ -8,9 +8,16 @@ public class WeaponController : MonoBehaviour
     
 
     protected PlayerMovement pm;
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         pm = FindAnyObjectByType<PlayerMovement>();
+    }
+
+    protected virtual void Start()
+    {
+        Debug.Log("WeaponData = " + weaponData);
+        Debug.Log("Prefab = " + (weaponData != null ? weaponData.prefab : null));
+
         currentCooldown = weaponData.cooldownDuration;
     }
 

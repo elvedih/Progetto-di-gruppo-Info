@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class KnifeBehaviour : ProjectileWeaponBehaviour
 {
-
-    public WeaponScriptableObject weaponData;
-    KnifeController kc;
-    private void Awake()
-    {
-        kc = FindAnyObjectByType<KnifeController>();
-    }
     protected override void Start()
     {
         base.Start();
@@ -17,6 +10,6 @@ public class KnifeBehaviour : ProjectileWeaponBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * kc.speed * Time.deltaTime;
+        transform.position += direction * weaponData.speed * Time.deltaTime;
     }
 }
