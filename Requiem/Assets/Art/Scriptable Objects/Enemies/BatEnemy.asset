@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BatEnemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScriptableObject
   maxHealth: 10
-  moveSpeed: 2
+  moveSpeed: 1
   damage: 0
