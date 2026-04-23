@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SwordWeapon
   m_EditorClassIdentifier: Assembly-CSharp::WeaponScriptableObject
   prefab: {fileID: 0}
-  damage: 10
   speed: 0
+  damage: 10
   cooldownDuration: 1
   pierce: 0
+  attackRadius: 10

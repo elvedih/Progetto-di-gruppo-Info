@@ -16,9 +16,9 @@ public class WeaponController : MonoBehaviour
     protected virtual void Start()
     {
         Debug.Log("WeaponData = " + weaponData);
-        Debug.Log("Prefab = " + (weaponData != null ? weaponData.prefab : null));
+        Debug.Log("Prefab = " + (weaponData != null ? weaponData.Prefab : null));
 
-        currentCooldown = weaponData.cooldownDuration;
+        currentCooldown = weaponData.CooldownDuration;
     }
 
     // Update is called once per frame
@@ -33,6 +33,6 @@ public class WeaponController : MonoBehaviour
 
     protected virtual void Attack()
     {
-        currentCooldown = weaponData.cooldownDuration;
+        currentCooldown = weaponData.CooldownDuration;
     }
 }

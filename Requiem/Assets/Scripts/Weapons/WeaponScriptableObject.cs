@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class WeaponScriptableObject : ScriptableObject
 {
-    public GameObject prefab;
-    //base stats for weapons
-    public float damage;
-    public float speed;
-    public float cooldownDuration;
-    public int pierce;
+    [SerializeField]
+    GameObject prefab;
+    public GameObject Prefab { get => prefab; set => prefab = value; }
+
+    public float Damage { get => damage; set => damage = value; }
+    public float Speed { get => speed; set => speed = value; }
+    public float CooldownDuration { get => cooldownDuration; set => cooldownDuration = value; }
+    public int Pierce { get => pierce; set => pierce = value; }
+
+    [SerializeField]
+    float speed;
+    [SerializeField]
+    float damage;
+    [SerializeField]
+    float cooldownDuration;
+    [SerializeField]
+    int pierce;
 }

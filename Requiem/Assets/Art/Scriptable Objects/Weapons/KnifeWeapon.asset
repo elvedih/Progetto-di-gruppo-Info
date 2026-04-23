@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c2639514c591145b6cc2d9d1557e0d, type: 3}
   m_Name: KnifeWeapon
   m_EditorClassIdentifier: Assembly-CSharp::WeaponScriptableObject
-  prefab: {fileID: 1872328183206728625, guid: 2f70854b3fc959d428392cd7daff84ca, type: 3}
-  damage: 0
+  prefab: {fileID: 8791065321696523966, guid: edf07fddf6f161841867ba463b2d772f, type: 3}
   speed: 10
-  cooldownDuration: 2
-  pierce: 0
+  damage: 5
+  cooldownDuration: 200
+  pierce: 1
+  attackRadius: 0

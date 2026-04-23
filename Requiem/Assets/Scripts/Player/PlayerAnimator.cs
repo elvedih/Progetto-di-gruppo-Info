@@ -7,7 +7,9 @@ public class PlayerAnimator : MonoBehaviour
     Animator am;
     PlayerMovement pm;
     SpriteRenderer sr;
-
+    [SerializeField]
+    Collider2D slashHitbox;
+    Vector3 pos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,6 +17,8 @@ public class PlayerAnimator : MonoBehaviour
         am = GetComponent<Animator>();
         pm = GetComponent<PlayerMovement>();
         sr = GetComponent<SpriteRenderer>();
+        slashHitbox.enabled = false;
+        pos = slashHitbox.transform.position;
     }
 
     // Update is called once per frame
@@ -42,5 +46,18 @@ public class PlayerAnimator : MonoBehaviour
         {
             sr.flipX = false;
         }
+        float dir = pm.moveDir.x < 0 ? -1f : 1f;
+        slashHitbox.transform.position = transform.position + new Vector3(0.8f * dir, 0f, 0f);
+    }
+
+    void EnableHitbox()
+    {
+        slashHitbox.enabled = true;
+        slashHitbox.GetComponent<SlashHitboxController>().DealDamage();
+    }
+
+    void DisableHitbox()
+    {
+        slashHitbox.enabled = false;
     }
 }
