@@ -15,6 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 0}
   speed: 0
   damage: 10
-  cooldownDuration: 1
+  cooldownDuration: 2
   pierce: 0
-  attackRadius: 10

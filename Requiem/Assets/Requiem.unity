@@ -395,9 +395,11 @@ GameObject:
   - component: {fileID: 1285390609}
   - component: {fileID: 1285390615}
   - component: {fileID: 1285390616}
+  - component: {fileID: 1285390617}
+  - component: {fileID: 1285390618}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,8 +503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   lastDirection: {x: 0, y: 0}
-  moveSpeed: 5
   moveDir: {x: 0, y: 0}
+  characterData: {fileID: 11400000, guid: 70413daa55926844aae5599415407e1e, type: 2}
 --- !u!212 &1285390613
 SpriteRenderer:
   serializedVersion: 2
@@ -614,6 +616,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbb1bbb7fd8943408b5b83b87e4f366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToggleRotationFreeze
+--- !u!114 &1285390617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285390608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d3543812753dc4b8967c0ed440afff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  characterStats: {fileID: 11400000, guid: 70413daa55926844aae5599415407e1e, type: 2}
+  experience: 0
+  level: 1
+  experienceCap: 0
+  invincibilityDuration: 0.5
+  levelRanges:
+  - startLevel: 1
+    endLevel: 3
+    experienceCapIncrease: 100
+  - startLevel: 4
+    endLevel: 5
+    experienceCapIncrease: 200
+  - startLevel: 6
+    endLevel: 7
+    experienceCapIncrease: 300
+  - startLevel: 8
+    endLevel: 10
+    experienceCapIncrease: 400
+  - startLevel: 11
+    endLevel: 15
+    experienceCapIncrease: 500
+  - startLevel: 16
+    endLevel: 20
+    experienceCapIncrease: 600
+  - startLevel: 21
+    endLevel: 99999
+    experienceCapIncrease: 600
+--- !u!114 &1285390618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285390608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199d11bebe0b78d4a81e2bca721fc898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollector
 --- !u!1 &1664299215
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +851,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.08792907}
+  m_Offset: {x: -0.008688629, y: -0.08792907}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -808,7 +861,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.6530693, y: 1.8792919}
+  m_Size: {x: 3.0875077, y: 1.8792919}
   m_EdgeRadius: 0
 --- !u!50 &2111439282
 Rigidbody2D:
@@ -968,11 +1021,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3504572579949980873, guid: 3f5a1f9ad1cdc524fb875c1210a5de94, type: 3}
       propertyPath: m_LocalPosition.z
