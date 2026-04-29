@@ -19,6 +19,7 @@ public class PropRandomizer : MonoBehaviour
 
     void SpawnProps()
     {
+
         /*foreach(GameObject sp in propSpawnPoints ){
                 int rand = Random.Range(0, propPrefabs.Count);
             GameObject prop = Instantiate(propPrefabs[rand], sp.transform.position, Quaternion.identity);
@@ -27,13 +28,16 @@ public class PropRandomizer : MonoBehaviour
         }*/
         foreach (GameObject sp in propSpawnPoints)
         {
+            Vector3 pos = sp.transform.position;
+            pos.z = -1f;
+
             if (propPrefabs.Count == 0) continue;
 
             int rand = Random.Range(0, propPrefabs.Count);
 
             // 1. Spawna il prop nella posizione esatta dello SpawnPoint
             // Usiamo la posizione e rotazione del punto di spawn (World Space)
-            GameObject prop = Instantiate(propPrefabs[rand], sp.transform.position, sp.transform.rotation);
+            GameObject prop = Instantiate(propPrefabs[rand], pos, sp.transform.rotation);
 
             // 2. Imposta il parent al CHUNK (this.gameObject), NON allo spawn point.
             // Questo evita problemi di scala se lo spawn point è ruotato o scalato.
