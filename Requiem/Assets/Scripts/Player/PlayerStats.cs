@@ -1,15 +1,26 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public CharacterScriptableObject characterStats;
-    float currentHealth;
-    float currentRecovery;
-    float currentMoveSpeed;
-    float currentMight;
-    float currentProjectileSpeed;
+    CharacterScriptableObject characterStats;
+
+    [HideInInspector]
+    public float currentHealth;
+    [HideInInspector]
+    public float currentRecovery;
+    [HideInInspector]
+    public float currentMoveSpeed;
+    [HideInInspector]
+    public float currentMight;
+    [HideInInspector]
+    public float currentProjectileSpeed;
+    [HideInInspector]
+    public float currentMagnetRange;
+
+    public List<GameObject> spawnedWeapons;
 
     [Header("Experience/Level")]
     public int experience = 0;
@@ -35,11 +46,17 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
+        characterStats = CharacterSelector.GetData();
+        CharacterSelector.instance.DestroySingleton();
+
         currentHealth = characterStats.MaxHealth;
         currentRecovery = characterStats.Recovery;
         currentMoveSpeed = characterStats.MoveSpeed;
         currentMight = characterStats.Might;
         currentProjectileSpeed = characterStats.ProjectileSpeed;
+        currentMagnetRange = characterStats.MagnetRange;
+
+        spawnWeapon(characterStats.StartingWeapon);
     }
 
     void Start()
@@ -111,6 +128,21 @@ public class PlayerStats : MonoBehaviour
         
     }
 
+    public void Recover()
+    {
+        if (currentHealth < characterStats.MaxHealth)
+        {
+            currentHealth += currentRecovery * Time.deltaTime;
+        }
+    }
+
+    public void spawnWeapon(GameObject weapon)
+    {
+        GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        spawnedWeapon.transform.SetParent(transform);
+        spawnedWeapons.Add(spawnedWeapon);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -121,5 +153,12 @@ public class PlayerStats : MonoBehaviour
         {
             isInvincible = false;
         }
+
+        if (currentHealth > characterStats.MaxHealth)
+        {
+            currentHealth = characterStats.MaxHealth;
+        }
+
+        Recover();
     }
 }
