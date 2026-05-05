@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3251655056480017707}
   - component: {fileID: -8357793866752753334}
   m_Layer: 0
-  m_Name: Bat
+  m_Name: Purple Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2373175670222840925, guid: 03534429a445af548a7c8303585a8f86, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1662313, g: 0.010902463, b: 0.3301887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c65b1d93953714fa5a04ce82d2a8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  enemyData: {fileID: 11400000, guid: bb6c9aba89ebc814dbe30ae2c6e4934a, type: 2}
+  enemyData: {fileID: 11400000, guid: 2ed1616eee46b0041aa21fb30ecd4785, type: 2}
   currentMoveSpeed: 0
   currentHealth: 0
   currentDamage: 0

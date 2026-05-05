@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d0e3f1a817bb034cb91b28ebdd047e5, type: 3}
-  m_Name: BatEnemy
+  m_Name: PurpleBat Enemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScriptableObject
   maxHealth: 10
-  moveSpeed: 1
+  moveSpeed: 3
   damage: 30
