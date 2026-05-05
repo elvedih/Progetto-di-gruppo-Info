@@ -49,7 +49,7 @@ public class EnemyStats : MonoBehaviour
 
     public void Kill()
     {
-        Destroy(gameObject);
+        Die();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -61,10 +61,11 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void Die()
     {
         EnemySpawner es = FindAnyObjectByType<EnemySpawner>();
         es.OnEnemyKilled();
+        Destroy(gameObject);
     }
 
     void ReturnEnemy()
