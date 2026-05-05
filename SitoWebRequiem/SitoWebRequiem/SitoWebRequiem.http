@@ -1,0 +1,6 @@
+@SitoWebRequiem_HostAddress = http://localhost:5010
+
+GET {{SitoWebRequiem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
