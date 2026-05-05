@@ -21,6 +21,11 @@ public class SlashHitboxController : MonoBehaviour
         
     }
 
+    public float GetCurrentDamage()
+    {
+        return currentDamage *= FindAnyObjectByType<PlayerStats>().currentMight;
+    }
+
     public void DealDamage()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(
@@ -34,13 +39,13 @@ public class SlashHitboxController : MonoBehaviour
             if (col.CompareTag("Enemy"))
             {
                 EnemyStats enemy = col.GetComponent<EnemyStats>();
-                enemy.TakeDamage(currentDamage);
+                enemy.TakeDamage(GetCurrentDamage());
             }
             if (col.CompareTag("Prop"))
             {
                 if (col.gameObject.TryGetComponent(out BreakableProps breakable))
                 {
-                    breakable.TakeDamage(currentDamage);
+                    breakable.TakeDamage(GetCurrentDamage());
                 }
             }
         }
