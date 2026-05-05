@@ -112,7 +112,7 @@ async function downloadGame() {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "gioco.zip";
+    a.download = "Requiem.zip";
     document.body.appendChild(a);
     a.click();
     a.remove();

@@ -21,11 +21,11 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/Requiem.unity
-    m_guid: 8bf218656fd7c43499bd16a00caca5f2
-  - m_enabled: 1
     m_path: Assets/Scenes/Menu.unity
     m_guid: 06ca7e95ebfd6a540975a4ed38123161
+  - m_enabled: 1
+    m_path: Assets/Scenes/Requiem.unity
+    m_guid: 8bf218656fd7c43499bd16a00caca5f2
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
