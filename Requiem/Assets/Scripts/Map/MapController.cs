@@ -12,17 +12,15 @@ public class MapController : MonoBehaviour
     public LayerMask terrainMask;
     [SerializeField] private PlayerMovement pm;
     public GameObject currentChunk;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        
+        SpawnChunksAroundPlayer(); // ← seed the world immediately
     }
 
-    // Update is called once per frame
     void Update()
     {
         ChunkChecker();
-
     }
 
     void ChunkChecker()
@@ -37,40 +35,52 @@ public class MapController : MonoBehaviour
         );
 
         Vector2 dir = pm.moveDir.normalized;
-
-        if (dir.magnitude < 0.1f) return;
-
-        Vector2Int gridDir = new Vector2Int(
-            Mathf.RoundToInt(dir.x),
-            Mathf.RoundToInt(dir.y)
-        );
+        if (dir.magnitude < 0.1f) return; // still fine here — only skips extra checks while idle
 
         for (int x = -2; x <= 2; x++)
         {
             for (int y = -2; y <= 2; y++)
             {
                 Vector2Int grid = currentGrid + new Vector2Int(x, y);
-
-                if (!spawnedChunks.ContainsKey(grid))
-                {
-                    Vector3 pos = new Vector3(
-                        grid.x * chunkSize,
-                        grid.y * chunkSize,
-                        0
-                    );
-
-                    GameObject newChunk = Instantiate(
-                        terrainChunks[Random.Range(0, terrainChunks.Count)],
-                        pos,
-                        Quaternion.identity
-                    );
-
-                    spawnedChunks.Add(grid, newChunk);
-                }
+                SpawnChunkAt(grid);
             }
         }
 
         RemoveFarChunks(currentGrid);
+    }
+
+    // Called once at startup, no guards needed
+    void SpawnChunksAroundPlayer()
+    {
+        Vector3 playerPos = player.transform.position;
+
+        Vector2Int currentGrid = new Vector2Int(
+            Mathf.RoundToInt(playerPos.x / chunkSize),
+            Mathf.RoundToInt(playerPos.y / chunkSize)
+        );
+
+        for (int x = -2; x <= 2; x++)
+        {
+            for (int y = -2; y <= 2; y++)
+            {
+                SpawnChunkAt(currentGrid + new Vector2Int(x, y));
+            }
+        }
+    }
+
+    void SpawnChunkAt(Vector2Int grid)
+    {
+        if (spawnedChunks.ContainsKey(grid)) return;
+
+        Vector3 pos = new Vector3(Mathf.Round(grid.x * chunkSize),Mathf.Round(grid.y * chunkSize),0);
+
+        GameObject newChunk = Instantiate(
+            terrainChunks[Random.Range(0, terrainChunks.Count)],
+            pos,
+            Quaternion.identity
+        );
+
+        spawnedChunks.Add(grid, newChunk);
     }
 
     void RemoveFarChunks(Vector2Int playerGrid)
@@ -79,9 +89,7 @@ public class MapController : MonoBehaviour
 
         foreach (var chunk in spawnedChunks)
         {
-            float distance = Vector2Int.Distance(playerGrid, chunk.Key);
-
-            if (distance > 2) // adjust this number!
+            if (Vector2Int.Distance(playerGrid, chunk.Key) > 3)
             {
                 Destroy(chunk.Value);
                 chunksToRemove.Add(chunk.Key);
@@ -89,23 +97,6 @@ public class MapController : MonoBehaviour
         }
 
         foreach (var pos in chunksToRemove)
-        {
             spawnedChunks.Remove(pos);
-        }
-    }
-
-    void SpawnChunk()
-    {
-        int rand = Random.Range(1, terrainChunks.Count);
-
-        if (terrainChunks[rand] == null)
-        {
-             Debug.LogError("Elemento NULL nella lista terrainChunks!");
-             return;
-        }
-
-            Instantiate(terrainChunks[rand], noTerrainPosition, Quaternion.identity);
     }
 }
-
-    

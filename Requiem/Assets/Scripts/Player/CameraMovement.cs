@@ -11,5 +11,11 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         transform.position = target.position + offset;
+        float pixelsPerUnit = 32f;
+        Vector3 pos = target.transform.position;
+        pos.x = Mathf.Round(pos.x * pixelsPerUnit) / pixelsPerUnit;
+        pos.y = Mathf.Round(pos.y * pixelsPerUnit) / pixelsPerUnit;
+        pos.z = transform.position.z;
+        transform.position = pos;
     }
 }
