@@ -20,3 +20,5 @@ MonoBehaviour:
   level: 2
   nextLevelPrefab: {fileID: 0}
   icon: {fileID: -2684615446435099649, guid: f327cc02b111f2b49aa27befe832da67, type: 3}
+  name: Coltello Livello 2
+  description: Rinforza il metallo del tuo coltello per aumentare la sua potenza

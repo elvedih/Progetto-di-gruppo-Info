@@ -3,6 +3,13 @@ using UnityEngine;
 public class SwordController : WeaponController
 {
     private Animator animator;
+    private SlashHitboxController hitbox;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        hitbox = GetComponentInChildren<SlashHitboxController>();
+    }
 
     protected override void Start()
     {
@@ -15,8 +22,9 @@ public class SwordController : WeaponController
         base.Attack();
 
         if (animator != null)
-        {
             animator.SetTrigger("Attack");
-        }
+
+        if (hitbox != null)
+            hitbox.DealDamage();
     }
 }

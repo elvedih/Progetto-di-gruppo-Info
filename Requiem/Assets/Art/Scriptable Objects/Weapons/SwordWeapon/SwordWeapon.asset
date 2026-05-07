@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: SwordWeapon
   m_EditorClassIdentifier: Assembly-CSharp::WeaponScriptableObject
   prefab: {fileID: 5445926411627908726, guid: e841ac527067ced4cb75e63ebd7edf09, type: 3}
-  speed: 0
+  speed: 1
   damage: 10
   cooldownDuration: 2
-  pierce: 0
+  pierce: 1
   level: 1
   nextLevelPrefab: {fileID: 1779522190322920682, guid: 7562a9d7c7d45304aa833ca123e9d268, type: 3}
   icon: {fileID: -61377641517535808, guid: f327cc02b111f2b49aa27befe832da67, type: 3}
+  name: Spada
+  description: Realizzi di avere una spada al tuo fianco, usala

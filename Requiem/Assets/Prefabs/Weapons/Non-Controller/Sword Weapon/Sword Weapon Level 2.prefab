@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4566926100693454624}
   - component: {fileID: 6810688482399458511}
+  - component: {fileID: -4076165303017093036}
   m_Layer: 0
   m_Name: Sword Weapon Level 2
   m_TagString: Untagged
@@ -91,3 +92,16 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &-4076165303017093036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445926411627908726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd22a09209d6bfc459caf878df20046c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwordController
+  weaponData: {fileID: 11400000, guid: 5365f73eac279fa418ffe27cd13f7038, type: 2}

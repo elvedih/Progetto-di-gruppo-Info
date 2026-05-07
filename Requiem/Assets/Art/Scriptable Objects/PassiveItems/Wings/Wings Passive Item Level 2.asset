@@ -16,3 +16,5 @@ MonoBehaviour:
   level: 2
   nextLevelPrefab: {fileID: 0}
   icon: {fileID: 7607382544091891577, guid: f327cc02b111f2b49aa27befe832da67, type: 3}
+  name: Ali livello 2
+  description: "Rompi la barriera del suono aumentato la tua velocit\xE0 ulteriormente"

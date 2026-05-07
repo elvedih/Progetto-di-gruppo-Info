@@ -20,3 +20,5 @@ MonoBehaviour:
   level: 2
   nextLevelPrefab: {fileID: 0}
   icon: {fileID: -4433018102823190244, guid: f327cc02b111f2b49aa27befe832da67, type: 3}
+  name: Spada Livello 2
+  description: "Tempera la lama della tua spada per renderla pi\xF9 affilata"

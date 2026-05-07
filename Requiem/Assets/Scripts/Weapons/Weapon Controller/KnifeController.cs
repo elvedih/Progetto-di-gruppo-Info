@@ -14,6 +14,5 @@ public class KnifeController : WeaponController
         GameObject spawnedKnife = Instantiate(weaponData.Prefab, transform.position, Quaternion.identity);
         spawnedKnife.transform.position = transform.position;
         spawnedKnife.GetComponent<KnifeBehaviour>().DirectionChecker(pm.lastDirection);
-        KnifeBehaviour kb = GetComponent<KnifeBehaviour>();
     }
 }

@@ -1,5 +1,3 @@
-using Unity.VisualScripting.Antlr3.Runtime;
-using UnityEditorInternal;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "WeaponScriptableObject", menuName = "Scriptable Objects/WeaponScriptableObject")]
@@ -32,4 +30,12 @@ public class WeaponScriptableObject : ScriptableObject
     [SerializeField]
     Sprite icon;
     public Sprite Icon { get => icon; private set => icon = value; }
+    [SerializeField]
+    new string name;
+    public string Name { get => name; private set => name = value; }
+
+    [SerializeField]
+    string description;
+
+    public string Description { get => description; private set => description = value; }
 }

@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -148,6 +149,10 @@ public class PlayerStats : MonoBehaviour
     public int weaponIndex;
     public int passiveItemIndex;
 
+    [Header("UI")]
+    public Image healthBar;
+    public Image expBar;
+    public Text levelText;
 
     void Awake()
     {
@@ -178,12 +183,17 @@ public class PlayerStats : MonoBehaviour
         GameManager.instance.currentMagnetDisplay.text = "Magnete  " + currentMagnetRange;
 
         GameManager.instance.AssignChosenCharacterUI(characterStats);
+
+        UpdateHealthBar();
+        UpdateExpBar();
+        UpdateLevelText();
     }
 
     public void IncreaseExperience(int amount)
     {
         experience += amount;
         LevelUpChecker();
+        UpdateExpBar();
     }
 
     void LevelUpChecker()
@@ -203,6 +213,10 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             experienceCap += experienceCapIncrease;
+
+            UpdateLevelText();
+
+            GameManager.instance.StartLevelUp();
         }
     }
 
@@ -219,8 +233,9 @@ public class PlayerStats : MonoBehaviour
             {
                 Kill();
             }
+
+            UpdateHealthBar();
         }
-       
     }
 
     public void Kill()
@@ -244,9 +259,6 @@ public class PlayerStats : MonoBehaviour
                     CurrentHealth = characterStats.MaxHealth;
                 }
         }
-
-       
-        
     }
 
     public void Recover()
@@ -259,12 +271,16 @@ public class PlayerStats : MonoBehaviour
 
     public void SpawnWeapon(GameObject weapon)
     {
+        Debug.Log($"Trying to spawn: {weapon?.name}, weaponIndex: {weaponIndex}, slots: {inventory.weaponSlots.Count}");
         if (weaponIndex >= inventory.weaponSlots.Count - 1)
         {
             Debug.Log("Inventory slots full");
             return;
         }
+
+        Debug.Log($"Spawning: {weapon.name}");
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        Debug.Log($"WeaponController found: {spawnedWeapon.GetComponent<WeaponController>()}");
         spawnedWeapon.transform.SetParent(transform);
         inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponent<WeaponController>());
 
@@ -305,5 +321,18 @@ public class PlayerStats : MonoBehaviour
         Recover();
     }
 
-    
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = currentHealth / characterStats.MaxHealth;
+    }
+
+    void UpdateExpBar()
+    {
+        expBar.fillAmount = (float)experience / experienceCap;
+    }
+
+    void UpdateLevelText()
+    {
+        levelText.text = "LV " + level.ToString();
+    }
 }

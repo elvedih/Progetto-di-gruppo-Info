@@ -16,3 +16,6 @@ MonoBehaviour:
   level: 2
   nextLevelPrefab: {fileID: 0}
   icon: {fileID: -6180373133180794851, guid: f327cc02b111f2b49aa27befe832da67, type: 3}
+  name: Spinacci Livello 2
+  description: "Gli spinacci non sono pi\xF9 di sottomarca, aumenta ulteriormente
+    la tua forza"

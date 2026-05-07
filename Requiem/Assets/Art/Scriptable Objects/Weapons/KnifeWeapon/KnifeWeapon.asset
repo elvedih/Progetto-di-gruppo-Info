@@ -20,3 +20,5 @@ MonoBehaviour:
   level: 1
   nextLevelPrefab: {fileID: 4399783200435409946, guid: fdf23adec08d14649adb9924122c54db, type: 3}
   icon: {fileID: -1324318189544361227, guid: f327cc02b111f2b49aa27befe832da67, type: 3}
+  name: Coltello
+  description: Spara dei coltelli nella direzione in cui stai guardando
