@@ -41,12 +41,17 @@ public class PlayerStats : MonoBehaviour
 
     public List<LevelRange> levelRanges;
 
-    
+    InventoryManager inventory;
+    public int weaponIndex;
+    public int passiveItemIndex;
+
 
     void Awake()
     {
         characterStats = CharacterSelector.GetData();
         CharacterSelector.instance.DestroySingleton();
+
+        inventory = GetComponent<InventoryManager>();
 
         currentHealth = characterStats.MaxHealth;
         currentRecovery = characterStats.Recovery;
@@ -55,7 +60,7 @@ public class PlayerStats : MonoBehaviour
         currentProjectileSpeed = characterStats.ProjectileSpeed;
         currentMagnetRange = characterStats.MagnetRange;
 
-        spawnWeapon(characterStats.StartingWeapon);
+        SpawnWeapon(characterStats.StartingWeapon);
     }
 
     void Start()
@@ -135,11 +140,33 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void spawnWeapon(GameObject weapon)
+    public void SpawnWeapon(GameObject weapon)
     {
+        if (weaponIndex >= inventory.weaponSlots.Count - 1)
+        {
+            Debug.Log("Inventory slots full");
+            return;
+        }
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform);
-        spawnedWeapons.Add(spawnedWeapon);
+        inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponent<WeaponController>());
+
+        weaponIndex++;
+    }
+
+    public void SpawnPassiveItem(GameObject passiveItem)
+    {
+        if (weaponIndex >= inventory.passiveItemSlots.Count - 1)
+        {
+            Debug.Log("Inventory slots full");
+            return;
+        }
+        GameObject spawnedPassiveItem = Instantiate(passiveItem, transform.position, Quaternion.identity);
+        spawnedPassiveItem.transform.SetParent(transform);
+        inventory.AddPassiveItem(passiveItemIndex, spawnedPassiveItem.GetComponent<PassiveItem>());
+
+        weaponIndex++;
+        passiveItemIndex++;
     }
 
     // Update is called once per frame
